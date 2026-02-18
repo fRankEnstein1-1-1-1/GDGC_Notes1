@@ -46,7 +46,7 @@ app.post("/notes", async (req,res)=>{
     }
 })
 
-//view
+//view /Read
 app.get("/notes",async(req,res)=>{
     try{
         const notes = await Note.find().sort({createdAt:-1});
@@ -57,7 +57,7 @@ app.get("/notes",async(req,res)=>{
     }
 })
 
-//edit
+//edit /update
 app.put("/notes/:id",async (req,res)=>{
     try{
 const {title,content} = req.body;
@@ -84,9 +84,7 @@ app.delete("/notes/:id",async(req,res)=>{
     }
 })
 
- const PORT = 5000
-app.listen(process.env.PORT,()=>{
+const PORT = 5000
+app.listen(PORT,()=>{
     console.log("Server is running !")
 })
-
-
